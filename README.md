@@ -1,5 +1,4 @@
-# Trusting the EU begins at home 
-### Code to support my Medium article
+# "Trusting the EU begins at home" - Supporting Code
 This repository contains the data and Jupyter notebooks which underpin the article that I have published on Medium on the 29th of June 2020.
 
 Link: https://medium.com/@dawidgalarowicz/trusting-the-eu-beings-at-home-bf49c022be83
