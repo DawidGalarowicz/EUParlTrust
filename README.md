@@ -1,6 +1,9 @@
-# Udacity - Disaster Response Pipeline
+# Trusting the EU begins at home
+## Building a classification model to predict which voters trust the EU Parliament
 
-This repository contains ETL and NLP pipelines as well as a Flask app that I have created as a part of Udacity's Data Science Nanodegree.
+This repository contains the data and Jupyter notebooks which underpin the article that I have published on Medium on the 29th of June 2020.
+
+Link: https://medium.com/@dawidgalarowicz/trusting-the-eu-beings-at-home-bf49c022be83
 
 ## Table of Contents  
 [Installation](#installation)  
@@ -12,62 +15,51 @@ This repository contains ETL and NLP pipelines as well as a Flask app that I hav
 <a name="installation"/></a>
 ## Installation
 
-The following libraries have been installed alongside a standard Anaconda distribution of Python:
+The following libraries have been used inside Google Colab's Python environment:
 
 ```bash
 pandas
 numpy
-nltk
-sqlalchemy
+shap
+xgboost
 sklearn
-sys
-re
-flask
-langdetect
-iso639
-plotly
-json
+time
+hyperopt
+defragTrees
+pickle
+matplotlib
+google.cloud
 ```
 
-The code should run with no issues using Python 3.6.7.
+The code should run with no issues using Python 3.6.9.
 
 Make sure that all your packages are up-to-date if you want to use my code!
 
 <a name="motivation"/></a>
 ## Project Motivation
 
-This code has been written to complete an assignment which forms a part of Udacity's Data Science Nanodegree.
+This code has been written to complete the capstone assignment of Udacity's Data Science Nanodegree.
 
-The aim of the project was threefold:
-- to build an ETL pipeline - combine text messages related to disasters with their labels/categories
-- to create an NLP pipeline - clean the text, extract features, perform classification, evaluate the model and save it
-- to prepare a Flask app - visualise the characteristics of the training data; allow any user to type a message and 
-                           run the model to check how it would be classified
+I have defined the problem statement myself. This required looking for the data, selecting an appropriate modelling strategy and analysing outputs.
+
+The aim of the project was twofold:
+- to verify whether a Machine Learning model can accurately distinguish between voters who trust the EU Parliament and those who do not
+- to identify what factors would drive such model
                            
-Please note that the repository DOES NOT contain the pickled model needed to make predictions in the Flask app! 
-It has not been added due to its large size and GitHub's restrictions. 
+Please note that the repository DOES NOT contain the API key used to make translations in EES - Data Cleaning.ipynb due to security/privacy reasons.
 
 <a name="files"/></a>
 ## File Descriptions
 Apart from the README file, there is a number of files in this repository:
 
 ```bash
-- app
-| - template
-| |- master.html  # main page of web app
-| |- go.html  # classification result page of web app
-|- run.py  # Flask file that runs app
-
-- data
-|- disaster_categories.csv  # data to process 
-|- disaster_messages.csv  # data to process
-|- process_data.py # ETL pipeline
-|- discover_languages.py # script to detect languages 
-|- InsertDatabaseName.db # database where tables are stored 
-
-- models
-|- train_classifier.py # NLP pipeline
-
+- EES - Data Cleaning.ipynb # A notebook used to process the Stata file in EES2019 Voter Study early release.zip.
+- EES - Modelling.ipynb # A notebook used to apply Machine Learning models on the outputs of EES - Data Cleaning.ipynb
+- NUTS2.csv # A mapping table to link NUTS codes to regions' names
+- cleandata_noparty.csv # 1 of 2 datasets produced by EES - Data Cleaning.ipynb (uploaded for convienience of others who want to simply run EES - Modelling.ipynb)
+- cleandata_parties.zip # .zip with 2 of 2 datasets produced by EES - Data Cleaning.ipynb (uploaded for convienience of others who want to simply run EES - Modelling.ipynb)
+- defragTrees.py # A Python package released by Hara and Hayashito, 2018
+- EES2019 Voter Study early release.zip # .zip with the Stata file published by Schmitt et al., 2019
 - README.md
 ```
 
