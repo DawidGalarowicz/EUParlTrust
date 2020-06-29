@@ -1,6 +1,4 @@
-# Trusting the EU begins at home
-## Building a classification model to predict which voters trust the EU Parliament
-
+# Trusting the EU begins at home - Code to support my Medium article
 This repository contains the data and Jupyter notebooks which underpin the article that I have published on Medium on the 29th of June 2020.
 
 Link: https://medium.com/@dawidgalarowicz/trusting-the-eu-beings-at-home-bf49c022be83
@@ -48,6 +46,8 @@ The aim of the project was twofold:
                            
 Please note that the repository DOES NOT contain the API key used to make translations in EES - Data Cleaning.ipynb due to security/privacy reasons.
 
+To find out more about the study and the questionnaire, visit http://europeanelectionstudies.net/european-election-studies/ees-2019-study/voter-study-2019.
+
 <a name="files"/></a>
 ## File Descriptions
 Apart from the README file, there is a number of files in this repository:
@@ -60,26 +60,20 @@ Apart from the README file, there is a number of files in this repository:
 - cleandata_parties.zip # .zip with 2 of 2 datasets produced by EES - Data Cleaning.ipynb (uploaded for convienience of others who want to simply run EES - Modelling.ipynb)
 - defragTrees.py # A Python package released by Hara and Hayashito, 2018
 - EES2019 Voter Study early release.zip # .zip with the Stata file published by Schmitt et al., 2019
+- party-list-appendix.csv # A .csv with party mappings used in EES - Data Cleaning.ipynb created by Schmitt et al., 2019
 - README.md
 ```
 
 <a name="results"/></a>
 ## Results
-To prepare all files needed by the app, run the commands in the following order:
+You can view the outputs in Jupyter notebooks and read my intepretation of the results in my Medium article.
 
-```bash
-# In the "data" folder:
-python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
-python discover_languages.py
+If you would like to replicate the study, start from unpacking EES2019 Voter Study early release.zip (zipped to reduce its size) to get the Stata file. Next, run EES - Data Cleaning.ipynb to obtain cleandata_noparty.csv and cleandata_parties.csv. Finally, run EES - Modelling.ipynb to apply classification models.
 
-# In the "models" folder:
-python train_classifier.py ../data/DisasterResponse.db classifier.pkl
-```
-
-Your data is now ready and your pickled model has been created!
-
-Finally, you can run the app!
+If you have issues with running hyperparameter optimisation in EES - Modelling.ipynb, make sure that you are using Google Colab's GPU or adjust the code to utilise your local CPU.
 
 <a name="licensing"/></a>
 ## Licensing & Acknowledgements
-Feel free to use the code here as you would like!
+Feel free to use this code for educational purposes and to experiment with it.
+
+If you are sharing this work, please reference the Medium article that describes my study.
